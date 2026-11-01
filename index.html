@@ -1,373 +1,102 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gelin's homepage</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* 侧边栏样式 */
-        .sidebar {
-            width: 250px;
-            background: linear-gradient(135deg, #DBE9DF 0%, #B2C1B9 100%);
-            color: white;
-            padding: 2rem 1rem;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .profile {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 1rem;
-            object-fit: cover;
-        }
-
-        .profile h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .nav-menu {
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-bottom: 0.5rem;
-        }
-
-        .nav-link {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        .nav-link.active {
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
-        }
-
-        /* 主内容区样式 */
-        .main-content {
-            margin-left: 250px;
-            flex: 1;
-            padding: 3rem;
-            background: #e8e5de;
-        }
-
-        .content-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .content-card {
-            background: white;
-            padding: 0.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
-        }
-
-        .content-card h2 {
-            color: #B9B291;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .content-card h3 {
-            color: #B9B29E;
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .content-card p {
-            margin-bottom: 0.5rem;
-            text-align: justify;
-        }
-
-        .content-card ul {
-            margin-left: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .content-card li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 1.5rem;
-            }
-
-            .nav-menu {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .nav-item {
-                margin: 0.25rem;
-            }
-        }
-
-        /* 社交链接 */
-        .social-links {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            margin: 0 0.5rem;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .social-links a:hover {
-            opacity: 0.7;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gelin Bian | Academic Homepage</title>
+  <meta name="description" content="Gelin Bian — MSc in Artificial Intelligence, HKUST (Guangzhou). Education and research interests in LLM explainability, latent spaces, and agent systems.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="canonical" href="https://gelinbian.github.io/">
+  <meta property="og:title" content="Gelin Bian | Academic Homepage">
+  <meta property="og:description" content="Education, research interests, and academic connections.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gelinbian.github.io/">
+  <!-- Visual style adapted from Minimal Academic Homepage by yangxinrui811.
+       https://github.com/yangxinrui811/minimal-academic-homepage
+       The template README permits use and adaptation for personal academic homepages. -->
+  <style>
+    :root{--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--muted:#636871;--line:#e5e5ea;--link:#0066cc;--chip:#f2f2f4;--shadow:0 18px 50px rgba(0,0,0,.055);--radius:24px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.58;color:var(--text);background:radial-gradient(circle at top left,rgba(255,255,255,.95),transparent 34rem),var(--bg);-webkit-font-smoothing:antialiased}
+    .container{max-width:1080px;margin:auto;padding:34px 20px 28px}
+    a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:3px solid var(--link);outline-offset:5px;border-radius:4px}
+    .skip{position:absolute;left:20px;top:-80px;z-index:5;background:white;padding:8px 16px}.skip:focus{top:12px}
+    .top-nav{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:0 4px 22px;font-size:14px}
+    .nav-name{font-weight:650;color:var(--text);letter-spacing:-.01em}.nav-links{display:flex;gap:24px;flex-wrap:wrap}.nav-links a{color:var(--muted)}.nav-links a:hover{color:var(--link)}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.74);border-radius:var(--radius);padding:34px 36px;margin-bottom:20px;box-shadow:var(--shadow)}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:44px;align-items:center;padding-top:42px;padding-bottom:42px}
+    h1{margin:0 0 12px;font-size:44px;line-height:1.12;letter-spacing:-.045em;font-weight:750}
+    h2{margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line);font-size:25px;line-height:1.25;letter-spacing:-.025em;font-weight:700}
+    h3{margin:0 0 6px;font-size:18px;line-height:1.45;letter-spacing:-.015em;font-weight:650}
+    p{margin:6px 0}.identity{font-size:17px;color:#42454b;margin-bottom:3px}.affiliation{font-size:15px;color:var(--muted)}
+    .chip-row{display:flex;gap:8px;flex-wrap:wrap;margin:19px 0 15px}.chip{font-size:12px;padding:5px 11px;border-radius:999px;background:var(--chip);color:#52565c;font-weight:500}
+    .about-line{max-width:690px;color:#42454b;font-size:15px;line-height:1.75}
+    .links{margin-top:21px;display:flex;flex-wrap:wrap;gap:10px}.pill-link{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:6px 14px;border:1px solid #d7e6fb;background:#f7faff;color:var(--link);font-size:14px;line-height:1.5;transition:background .15s ease}
+    .pill-link:hover{text-decoration:none;background:#edf5ff}.pill-link svg{width:16px;height:16px}
+    .profile-tile{width:180px;height:180px;border-radius:24px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#f0f5ff,#e5ebf6);border:1px solid #e1e7f1;box-shadow:0 12px 34px rgba(0,0,0,.06);color:#5275a2;font-size:58px;font-weight:600;letter-spacing:-4px;user-select:none}
+    .timeline{position:relative;display:grid;gap:0}.education-item{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:18px;align-items:start;padding:8px 0 26px}.education-item+.education-item{padding:26px 0 6px;border-top:1px solid #f0f0f2}
+    .school-icon{height:46px;width:46px;display:grid;place-items:center;background:#eef4fc;border:1px solid #e1eaf6;border-radius:14px;color:#4274ae}.school-icon.secondary{background:#f2f0fa;border-color:#e8e3f4;color:#7762a3}.school-icon svg{height:25px;width:25px}
+    .degree{font-size:15px;color:#484c53;margin-top:6px}.dates{font-size:13px;white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}.degree-tag{display:inline-block;margin-top:13px;border-radius:999px;background:var(--chip);color:#575c63;font-size:12px;padding:3px 10px}
+    .interest-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.info-panel{border:1px solid #eceef2;border-radius:18px;padding:22px;background:#fcfcfd}.info-panel h3{font-size:17px}.info-panel p{font-size:14px;color:var(--muted);line-height:1.65;margin:8px 0 0}
+    .contact{display:flex;justify-content:space-between;align-items:center;gap:24px}.contact h2{border:0;padding:0;margin:0 0 7px;font-size:23px}.contact p{color:var(--muted);font-size:14px;margin:0}.contact .pill-link{flex-shrink:0}
+    .footer{text-align:center;color:var(--muted);font-size:12px;line-height:1.9;padding:10px 10px 24px}.footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.publication{padding:16px 0;border-bottom:1px solid var(--line)}
+    @media(max-width:820px){.container{padding:24px 16px}.card{padding:28px;border-radius:20px}.hero{grid-template-columns:minmax(0,1fr) 130px;gap:25px}.profile-tile{width:130px;height:150px;font-size:44px}.education-item{grid-template-columns:42px minmax(0,1fr);gap:14px}.dates{grid-column:2;grid-row:auto;padding:0;margin-top:-8px}.school-icon{width:40px;height:40px}.education-item h3{font-size:17px}.contact{flex-wrap:wrap}}
+    @media(max-width:560px){.container{padding:20px 14px 12px}.top-nav{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:18px}.nav-links{gap:22px;font-size:13px}.card{padding:26px 22px}.hero{grid-template-columns:1fr;gap:22px}.profile-tile{grid-row:1;width:76px;height:76px;border-radius:18px;font-size:29px;letter-spacing:-2px;box-shadow:none}h1{font-size:36px}h2{font-size:23px}.identity{font-size:16px}.affiliation{font-size:14px}.chip{font-size:11px;padding:5px 9px}.interest-grid,.project-grid{grid-template-columns:1fr}.info-panel{padding:19px}.contact{gap:18px}.education-item{gap:12px}.education-item+.education-item{padding-top:24px}.dates{font-size:12px}.footer{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill-link{transition:none}}
+    @media print{body{background:white}.top-nav,.skip{display:none}.container{padding:0}.card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}.hero{grid-template-columns:1fr 130px}.profile-tile{width:130px;height:130px}.footer{padding:0}}
+  </style>
 </head>
-<body>
-    <div class="container">
-        <!-- 侧边栏 -->
-        <aside class="sidebar">
-            <div class="profile">
-                <img src="images/image.jpg" alt="头像" class="profile-img">
-                <h1>卞葛霖</h1>
-                <p>HKUST(GZ）| AI</p>
-            </div>
-            
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-page="motivation">🎓 研究动机</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-page="about">📖 个人介绍</a>
-                    </li>
-                    
-                </ul>
-            </nav>
-
-            <div class="social-links">
-                <a href="mailto:gelinbian666@gmail" title="Email">📧 Email</a>
-            </div>
-        </aside>
-
-        <!-- 主内容区 -->
-        <main class="main-content">
-            
-
-            <!-- 读博动机页面 -->
-            <section id="motivation" class="content-section  active">
-                <div class="content-card">
-                    <div style="text-align: center; margin-bottom: 10px;">
-                        <img src="images/title.png" alt="标题" style="max-width: 100%; height: auto;">
-                    <p>这是一篇自我剖析。我问了自己3个问题：为什么要读博？为什么对隐空间感兴趣？为什么是我？</p>
-                    </div>
-                </div>
-                
-                
-                <div class="content-card">
-                    
-                    <h2> Motivation?</h2>
-                    <h3>Q：为什么想做科研？</h3>
-                    <p>
-                        经历过公司实习（研究型、业务型、工程型和躺平型），体验了工业界和学术界的区别，还是更喜欢有深度的思考，明确自己想要的是解决有挑战的问题的价值感以及相对的学术自由。
-                    </p>
-                    
-                    <h3>Q：为什么要读博？</h3>
-                    <p>
-                        我希望能成为一名博导，有机会鼓励我的学生去做他们感兴趣且擅长的事情，那正是他们天赋所在。此外，我希望制作一份本领域从0科研的开源手册，打破“先有鸡还是先有蛋”的问题，给更多有想法的同学拓宽选择的机会。
-                    </p>
-
-                    <h3>Q：惯性升学？害怕进入社会？</h3>
-                    <p>
-                        NO，没有学历崇拜，倒是很希望能尽早社会化，所以在博士期间会注重社会化训练。
-                    </p>
-
-                    <h3>Q:是否适合科研？</h3>
-                    <p>
-                        我对研究的认识是：想法->实验->失败->想法->....->写作->presentation->social。并且每一个环节都经过实践验证：这个过程我痛苦嘛？排斥嘛？快乐嘛？不知道是不是我心态比较好，每一个环节都很开心，甚至很享受。
-                    </p>
-                    <ul>
-                        <li>想法？兴趣点最重要，目前方向符合个人兴趣。过程中往往灵光一闪：我好棒！我怎么能想出这么好的想法！实验失败后：夸早了。</li>
-                        <li>实验？工程积累还不错。</li>
-                        <li>失败？我是一个对变化很包容的人，口头禅是没事儿～。</li>
-                        <li>写作？很享受，就像在讲述这份工作的故事。我会把他当作艺术品，关注行文逻辑的环环相扣，关注图表的易读和美观（配色、布局，强迫症狂喜）。</li>
-                        <li>presentation？在很多人面前分享工作会让我很兴奋很开心，甚至有点人来疯（我觉得和小时候兴趣班经常登台演出有关系）。这是我认为博士阶段需要持续培养的能力，在会议上流畅且有逻辑的表达是吸引潜在交流的难得时机。</li>
-                        <li>social？曾经尝试和公司不同年龄段的陌生人coffee chat了解工作感悟，所以我有从容破冰的能力。此外，参加会议前我会宣传好自己的工作，并关注其他感兴趣的研究，带着自己的理解和疑问，以便进一步取得合作机会。</li>
-                            
-                            
-                    </ul>
-
-                    <h3>Q:是否是在美化一条未走的路？</h3>
-                    <p>
-                        我明白读博短期的经济收益肯定不如直接进入大厂工作，长期的经济回报更难以预料。然而，“好”不等于“合适”，我的实习经历已经证明了我更适合什么，而非所有事情都可以用性价比来衡量。
-                    </p>
-                    <p>
-                        未来我可能只是一个小小普博，需要面对一无所获的不确定性、学历贬值的时代变化、年龄限制带来的教职焦虑（还想读个博后）等等变化和困难，但是，我还是想做。<strong>花几年时间专注自己感兴趣的事情，在相对自由的时空更好的了解自己，这本身就很难得。</strong>哪怕最后证明了我做的方向行不通，虽然在社会评价系统中结果是失败的，但也有了一份科学的结论。
-                    </p>
-                </div>
-
-                <div class="content-card">
-                    <h2> Perception?</h2>
-                    <h3>Q：为什么对隐空间感兴趣？</h3>
-                    <p>参考研究兴趣</p>
-                </div>
-                
-                <div class="content-card">
-                    <h2>Character</h2>
-                    <h3>16型人格：INFJ</h3>
-                    <p>
-                        我需要工作中的价值感，也会在不同的场合模仿需要的角色（外向的社交之后需要独处来充电）。我对自己的思维特点有着清晰的认识。
-                    </p>
-                    <ul>
-                        <li>我有超强的<strong>情绪共情和体感共情能力</strong>，因此无论未来代表哪一类人的利益，我都能持续传递善意，做一个有温度的人。</li>
-                        <li>我的<strong>几何空间想象力和抽象概括能力</strong>非常好。我也很擅长观察和模仿，因为我能像孩童一样打量世界，思考其背后的“为什么”，在发现有意思的动机的同时，还能发现需求空缺（并进一步提问：为什么没人做？）。</li>
-                        <li>我的<strong>直觉感</strong>很强。我认为直觉是自我意识的感知，是长期思考的沉淀。我相信有影响力的工作的雏形往往是有趣的工作，而“有趣”本身就是一种感受。</li>
-                        <li>我喜欢有条理的<strong>单线工作</strong>，不喜欢并行处理事情。</li>
-                        <li>我有时会因为害怕做不好而不敢开始，因恐惧而想要<strong>逃避</strong>行动。但我已经学会告诉自己：先完成再完美，先做一个乱七八糟的东西出来。</li>
-                    </ul>
-
-                    
-
-                    <h3>理想的博导画像</h3>
-                    <p>
-                        <strong>依旧记得当初做科研的初衷*</strong>
-                        <br>
-                        <small>*:愿与学生共赢、支持交流合作、活跃在学术一线（如果有鲜明的个人特点就更好了：情绪稳定？抽象有趣？……停，该醒醒了）。</small>
-                    </p>
-
-                    <h3>我的优势</h3>
-                    <ul>
-                        <li>我的读博动机和兴趣方向都是<strong>斟酌后的自主选择</strong>，因此会拥有更持久坚定的<strong>内驱力</strong>。</li>
-                        <li>我更懂得<strong>珍惜平台资源</strong>，理解个人能力上限的决定性因素是个人的努力和机缘，英雄不问出处，提升<strong>自身实力</strong>才是硬道理。</li>
-                        <li>我能够以更包容的<strong>心态</strong>看待问题。我的过往经历让我能以更平和的心态去面对困难和变化，<strong>接纳</strong>一切，允许事情没有理由地、不按期待地发生。毕竟这个世界就是一个巨大的随机种子。</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <p>就像此刻读到这一份特别的个人陈述，很感谢您能看到这里。如果您对我感兴趣，希望为您提供多方面的参考，不知道老师期待的学生画像，那也就回到了我们的标题。</p>
-                </div>
-            </section>
-
-            <!-- 个人介绍页面 -->
-            <section id="about" class="content-section">
-                <div class="content-card">
-                    <h2>👋 关于我</h2>
-                    <p>
-                        我是卞葛霖，香港科技大学广州科研助理，gap year寻找博导中
-                    </p>
-                </div>
-
-                <div class="content-card">
-                    <h2>🎓 教育背景</h2>
-                    
-                    <p>2023年 - 2025年 香港科技大学（广州）人工智能理学硕士</p>
-                    <p>2019年 - 2023年 南京邮电大学 通信工程学士</p> 
-                </div>
-
-                <div class="content-card">
-                    <h2>📚 研究兴趣</h2>
-                    <ul>
-                        <li>llm explainability, 特别是 latent space in llm reasoning</li>
-                        <li>agent system，理论做不出的时候，做一个有趣的工程来喘口气</li>                    
-                    </ul>
-                </div>
-
-            </section>
-
-        </main>
-    </div>
-
-    <script>
-        // 页面切换功能
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const contentSections = document.querySelectorAll('.content-section');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // 移除所有active类
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    contentSections.forEach(s => s.classList.remove('active'));
-                    
-                    // 添加active类到当前项
-                    this.classList.add('active');
-                    const pageId = this.getAttribute('data-page');
-                    document.getElementById(pageId).classList.add('active');
-                    
-                    // 滚动到顶部
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-        });
-    </script>
+<body id="top">
+  <a class="skip" href="#main">Skip to main content</a>
+  <div class="container">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="nav-name" href="#top">Gelin Bian</a>
+      <div class="nav-links"><a href="#about">About</a><a href="#education">Education</a><a href="#research">Research</a><a href="#contact">Contact</a></div>
+    </nav>
+    <main id="main">
+      <!-- Edit your profile here. Replace the initials tile with your own photo if desired. -->
+      <section class="card hero" id="about" aria-labelledby="profile-title">
+        <div>
+          <h1 id="profile-title">Gelin Bian</h1>
+          <p class="identity">MSc in Artificial Intelligence</p>
+          <p class="affiliation">The Hong Kong University of Science and Technology (Guangzhou)</p>
+          <div class="chip-row" aria-label="Research topics"><span class="chip">LLM Explainability</span><span class="chip">Latent Spaces</span><span class="chip">Agent Systems</span></div>
+          <p class="about-line">I am interested in understanding how large language models reason, with a particular focus on their latent spaces. I also explore agent systems through hands-on engineering projects.</p>
+          <div class="links"><a class="pill-link" href="https://github.com/gelinbian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></svg>GitHub <span aria-hidden="true">↗</span></a><a class="pill-link" href="#education">Education <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="profile-tile" aria-hidden="true">GB</div>
+      </section>
+      <section class="card" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="timeline">
+          <article class="education-item">
+            <div class="school-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 8 10-5 10 5-10 5L2 8Zm4 2v7c4 3 8 3 12 0v-7m4-2v8"/></svg></div>
+            <div><h3>The Hong Kong University of Science and Technology (Guangzhou)</h3><p class="degree">MSc in Artificial Intelligence</p><span class="degree-tag">Master’s degree</span></div>
+            <div class="dates"><time datetime="2023">2023</time> – <time datetime="2025">2025</time></div>
+          </article>
+          <article class="education-item">
+            <div class="school-icon secondary" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 9-5 9 5H3Zm1 12h16M6 11v6m6-6v6m6-6v6M3 22h18"/></svg></div>
+            <div><h3>Nanjing University of Posts and Telecommunications</h3><p class="degree">Bachelor’s Degree in Communication Engineering</p><span class="degree-tag">Bachelor’s degree</span></div>
+            <div class="dates"><time datetime="2019">2019</time> – <time datetime="2023">2023</time></div>
+          </article>
+        </div>
+      </section>
+      <section class="card" id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research Interests</h2>
+        <div class="interest-grid"><article class="info-panel"><h3>LLM Explainability</h3><p>Understanding latent spaces in large language model reasoning.</p></article><article class="info-panel"><h3>Agent Systems</h3><p>Exploring agent systems through hands-on engineering projects.</p></article></div>
+      </section>
+      <!-- Add Projects and Selected Publications sections here when verified content is available.
+           Use class="card" for sections, class="project-grid" for project layouts,
+           class="info-panel" for project cards, and class="publication" for paper entries.
+           Add matching navigation links when these sections are published. -->
+      <section class="card contact" id="contact" aria-labelledby="contact-title">
+        <div><h2 id="contact-title">Get in Touch</h2><p>Find my work and connect with me on GitHub.</p></div>
+        <!-- Add a mailto link only after confirming the complete email address. -->
+        <a class="pill-link" href="https://github.com/gelinbian">GitHub / gelinbian <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+    <footer class="footer">© 2026 Gelin Bian<br>Adapted from <a href="https://github.com/yangxinrui811/minimal-academic-homepage">Minimal Academic Homepage</a>.</footer>
+  </div>
 </body>
 </html>
